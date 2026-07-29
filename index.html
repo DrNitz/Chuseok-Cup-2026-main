@@ -88,11 +88,24 @@
 
     body {
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-      background: url('images/OFFICIAL BACKGROUND POST (1).png') center center / cover fixed no-repeat;
       background-color: var(--bg);
       color: var(--text-primary);
       line-height: 1.6;
       min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    .site-bg {
+      position: fixed;
+      inset: -20px; /* Bleed edge to hide blur artifacts */
+      background: url('images/OFFICIAL BACKGROUND POST (1).png') center center / cover no-repeat;
+      z-index: -10;
+      filter: blur(12px) brightness(0.3);
+      transition: all 0.3s ease;
+    }
+    
+    [data-theme="light"] .site-bg {
+      filter: blur(12px) brightness(0.8);
     }
 
     .theme-toggle {
@@ -438,18 +451,18 @@
       position: fixed;
       inset: 0;
       pointer-events: none;
-      z-index: -2;
+      z-index: -1;
       overflow: hidden;
     }
     .bg-obj {
       position: absolute;
       font-size: 120px;
-      opacity: 0.05;
-      filter: blur(3px);
+      opacity: 0.15;
+      filter: blur(4px);
       animation: floatBg linear infinite;
     }
     [data-theme="light"] .bg-obj {
-      opacity: 0.08;
+      opacity: 0.25;
     }
     .bg-obj:nth-child(1) { top: 20%; left: -20%; animation-duration: 35s; }
     .bg-obj:nth-child(2) { top: 70%; right: -20%; animation-duration: 45s; animation-direction: reverse; font-size: 160px; }
@@ -1025,6 +1038,8 @@
 </head>
 
 <body>
+  <div class="site-bg" aria-hidden="true"></div>
+  
   <!-- Floating Background Objects -->
   <div class="bg-objects" aria-hidden="true">
     <div class="bg-obj">🎾</div>
