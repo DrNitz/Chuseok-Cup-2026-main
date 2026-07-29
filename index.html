@@ -1,0 +1,1462 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chuseok Cup 2026 — Registration</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: rgba(15, 15, 20, 0.7);
+      --surface: rgba(25, 25, 35, 0.95);
+      --surface-raised: rgba(35, 35, 50, 0.98);
+      --surface-muted: rgba(20, 20, 30, 0.85);
+      --border: rgba(255, 255, 255, 0.1);
+      --clay-shadow: 
+        8px 8px 16px rgba(0, 0, 0, 0.4), 
+        inset -4px -4px 12px rgba(0, 0, 0, 0.4), 
+        inset 4px 4px 12px rgba(255, 255, 255, 0.15);
+      --clay-shadow-hover: 
+        10px 10px 20px rgba(0, 0, 0, 0.5), 
+        inset -4px -4px 12px rgba(0, 0, 0, 0.3), 
+        inset 4px 4px 12px rgba(255, 255, 255, 0.2);
+      --clay-shadow-active:
+        2px 2px 8px rgba(0, 0, 0, 0.3), 
+        inset 4px 4px 12px rgba(0, 0, 0, 0.5), 
+        inset -4px -4px 12px rgba(255, 255, 255, 0.05);
+      --clay-shadow-inset:
+        inset 4px 4px 10px rgba(0, 0, 0, 0.5),
+        inset -4px -4px 10px rgba(255, 255, 255, 0.05);
+      --text-primary: #ffffff;
+      --text-secondary: #e0e0e8;
+      --text-tertiary: #b8b8c0;
+      --text-quaternary: #9898a0;
+      --accent: #facc15;
+      --accent-glow: rgba(250, 204, 21, 0.2);
+      --danger: #ef4444;
+      --positive: #22c55e;
+      --tennis: #3b82f6;
+      --pb-group: #22c55e;
+      --pb-single: #f97316;
+      --radius-sm: 16px;
+      --radius-md: 24px;
+      --radius-lg: 32px;
+      --clay-blur: blur(20px);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: url('images/OFFICIAL BACKGROUND POST (1).png') center center / cover fixed no-repeat;
+      background-color: var(--bg);
+      color: var(--text-primary);
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    /* ===== HERO WITH BACKGROUND IMAGE ===== */
+    .hero {
+      position: relative;
+      text-align: center;
+      padding: 100px 20px 80px;
+      overflow: hidden;
+      min-height: 420px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background: url('images/10211.jpg') center top / cover no-repeat;
+      z-index: 0;
+    }
+
+    .hero-bg::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg,
+          rgba(10, 10, 15, 0.3) 0%,
+          rgba(10, 10, 15, 0.65) 40%,
+          rgba(10, 10, 15, 0.92) 75%,
+          var(--bg) 100%);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--accent);
+      border: 1px solid var(--accent);
+      padding: 6px 16px;
+      border-radius: 100px;
+      margin-bottom: 20px;
+      background: rgba(10, 10, 15, 0.6);
+      backdrop-filter: blur(4px);
+    }
+
+    .hero h1 {
+      font-size: clamp(40px, 7vw, 72px);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.05;
+      margin-bottom: 4px;
+      color: #fff;
+      text-shadow: 0 2px 24px rgba(0, 0, 0, 0.5);
+    }
+
+    .hero .year {
+      font-size: clamp(56px, 9vw, 110px);
+      font-weight: 900;
+      line-height: 1;
+      color: transparent;
+      -webkit-text-stroke: 2px var(--accent);
+      text-shadow: 0 0 40px rgba(232, 197, 71, 0.3);
+      margin-bottom: 16px;
+    }
+
+    .hero-tagline {
+      font-size: 18px;
+      color: var(--text-secondary);
+      margin-bottom: 8px;
+      text-shadow: 0 1px 8px rgba(0, 0, 0, 0.5);
+    }
+
+    .hero-date {
+      font-size: 14px;
+      color: var(--text-tertiary);
+      font-variant-numeric: tabular-nums;
+      text-shadow: 0 1px 8px rgba(0, 0, 0, 0.5);
+    }
+
+    .hero-slogan {
+      margin-top: 12px;
+      font-size: 13px;
+      color: var(--text-quaternary);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    /* ===== VENUE BAR ===== */
+    .venue-bar {
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      padding: 16px 20px;
+      text-align: center;
+    }
+
+    .venue-bar-inner {
+      max-width: 800px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      font-size: 14px;
+      color: var(--text-secondary);
+    }
+
+    .venue-bar-inner a {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .venue-bar-inner a:hover {
+      text-decoration: underline;
+    }
+
+    .venue-icon {
+      font-size: 16px;
+    }
+
+    /* ===== IMAGES BANNER ===== */
+    .img-banner {
+      display: flex;
+      gap: 12px;
+      padding: 40px 20px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .img-banner img {
+      width: 100%;
+      max-width: 360px;
+      height: 200px;
+      object-fit: cover;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border);
+      opacity: 0.9;
+      transition: opacity 0.3s, transform 0.3s;
+    }
+
+    .img-banner img:hover {
+      opacity: 1;
+      transform: translateY(-4px);
+    }
+
+    /* ===== CONTAINER ===== */
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 20px 80px;
+    }
+
+    .section-title {
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 24px;
+      color: var(--text-primary);
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      background: var(--surface);
+      padding: 12px 24px;
+      border-radius: var(--radius-lg);
+      box-shadow: var(--clay-shadow);
+      backdrop-filter: var(--clay-blur);
+      border: 1px solid var(--border);
+    }
+
+    .section-title::before {
+      content: '';
+      width: 6px;
+      height: 24px;
+      background: var(--accent);
+      border-radius: 3px;
+      box-shadow: 0 0 10px var(--accent-glow);
+    }
+
+    /* ===== PRIZE CARDS ===== */
+    .prize-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-bottom: 48px;
+    }
+
+    .prize-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 24px 16px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.3s;
+      box-shadow: var(--clay-shadow);
+      backdrop-filter: var(--clay-blur);
+    }
+
+    .prize-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--clay-shadow-hover);
+    }
+
+    .prize-card.tennis {
+      border-top: 3px solid var(--tennis);
+    }
+
+    .prize-card.pb-group {
+      border-top: 3px solid var(--pb-group);
+    }
+
+    .prize-card.pb-single {
+      border-top: 3px solid var(--pb-single);
+    }
+
+    .prize-card h3 {
+      font-size: 15px;
+      font-weight: 600;
+      margin-bottom: 16px;
+      color: var(--text-primary);
+    }
+
+    .prize-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 8px 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 13px;
+    }
+
+    .prize-row:last-child {
+      border-bottom: none;
+    }
+
+    .prize-row .label {
+      color: var(--text-secondary);
+    }
+
+    .prize-row .amt {
+      font-weight: 600;
+      color: var(--accent);
+      font-variant-numeric: tabular-nums;
+    }
+
+    .prize-icon {
+      font-size: 32px;
+      margin-bottom: 8px;
+    }
+
+    /* ===== CATEGORY SELECTOR ===== */
+    .cat-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-bottom: 32px;
+    }
+
+    .cat-btn {
+      background: var(--surface);
+      border: 1.5px solid transparent;
+      border-radius: var(--radius-lg);
+      padding: 28px 16px;
+      cursor: pointer;
+      text-align: center;
+      transition: all 0.25s ease;
+      position: relative;
+      box-shadow: var(--clay-shadow);
+      backdrop-filter: var(--clay-blur);
+    }
+
+    .cat-btn:hover {
+      background: var(--surface-raised);
+      box-shadow: var(--clay-shadow-hover);
+      transform: translateY(-2px);
+    }
+
+    .cat-btn.active {
+      border-color: var(--accent);
+      background: var(--surface-raised);
+      box-shadow: var(--clay-shadow-active), 0 0 0 1px var(--accent);
+      transform: translateY(2px);
+    }
+
+    .cat-btn .cat-icon {
+      font-size: 36px;
+      margin-bottom: 12px;
+    }
+
+    .cat-btn h4 {
+      font-size: 15px;
+      font-weight: 600;
+      margin-bottom: 4px;
+      color: var(--text-primary);
+    }
+
+    .cat-btn p {
+      font-size: 12px;
+      color: var(--text-tertiary);
+    }
+
+    /* ===== FORM CARDS ===== */
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 32px;
+      margin-bottom: 24px;
+      box-shadow: var(--clay-shadow);
+      backdrop-filter: var(--clay-blur);
+    }
+
+    .card-title {
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 20px;
+      color: var(--text-primary);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .form-group {
+      margin-bottom: 16px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text-secondary);
+      margin-bottom: 6px;
+    }
+
+    .form-group label .req {
+      color: var(--danger);
+      margin-left: 2px;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 14px 16px;
+      border-radius: var(--radius-md);
+      border: 1px solid transparent;
+      background: var(--surface-muted);
+      color: var(--text-primary);
+      font-size: 15px;
+      font-family: inherit;
+      transition: all 0.2s;
+      box-shadow: var(--clay-shadow-inset);
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px var(--accent-glow);
+    }
+
+    .form-group input::placeholder,
+    .form-group textarea::placeholder {
+      color: var(--text-quaternary);
+    }
+
+    .form-group input:read-only {
+      background: var(--surface-raised);
+      color: var(--text-tertiary);
+      cursor: default;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    /* ===== MEMBER ROWS ===== */
+    .member-header {
+      display: grid;
+      grid-template-columns: 1fr 70px 90px;
+      gap: 8px;
+      margin-bottom: 6px;
+      padding: 0 4px;
+    }
+
+    .member-header span {
+      font-size: 11px;
+      color: var(--text-quaternary);
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .member-row {
+      display: grid;
+      grid-template-columns: 1fr 70px 90px;
+      gap: 8px;
+      align-items: center;
+      margin-bottom: 8px;
+    }
+
+    .member-row input,
+    .member-row select {
+      margin-bottom: 0;
+      padding: 10px 12px;
+      font-size: 14px;
+    }
+
+    .add-member-btn {
+      width: 100%;
+      padding: 10px;
+      margin-top: 4px;
+      background: transparent;
+      border: 1.5px dashed var(--border);
+      border-radius: var(--radius-sm);
+      color: var(--text-tertiary);
+      font-size: 13px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .add-member-btn:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    /* ===== BANK DETAILS ===== */
+    .bank-card {
+      background: var(--surface-muted);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 16px;
+      margin-bottom: 16px;
+    }
+
+    .bank-card h4 {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--accent);
+      margin-bottom: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .bank-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 6px 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 13px;
+    }
+
+    .bank-row:last-child {
+      border-bottom: none;
+    }
+
+    .bank-row .bank-label {
+      color: var(--text-tertiary);
+    }
+
+    .bank-row .bank-value {
+      color: var(--text-primary);
+      font-weight: 500;
+    }
+
+    /* ===== PAYMENT ===== */
+    .payment-options {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+
+    .pay-opt {
+      background: var(--surface-muted);
+      border: 1.5px solid transparent;
+      border-radius: var(--radius-md);
+      padding: 20px;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.2s;
+      box-shadow: var(--clay-shadow);
+    }
+
+    .pay-opt:hover {
+      box-shadow: var(--clay-shadow-hover);
+      transform: translateY(-2px);
+    }
+
+    .pay-opt.active {
+      border-color: var(--accent);
+      background: var(--surface-raised);
+      box-shadow: var(--clay-shadow-active);
+      transform: translateY(2px);
+    }
+
+    .pay-opt .pay-icon {
+      font-size: 28px;
+      margin-bottom: 6px;
+    }
+
+    .pay-opt .pay-label {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--text-primary);
+    }
+
+    /* ===== FILE UPLOAD ===== */
+    .file-upload {
+      border: 2px dashed var(--border);
+      border-radius: var(--radius-md);
+      padding: 32px 20px;
+      text-align: center;
+      cursor: pointer;
+      background: var(--surface-muted);
+      transition: all 0.2s;
+      box-shadow: var(--clay-shadow-inset);
+    }
+
+    .file-upload:hover {
+      border-color: var(--accent);
+    }
+
+    .file-upload input {
+      display: none;
+    }
+
+    .file-upload .upload-icon {
+      font-size: 32px;
+      margin-bottom: 8px;
+    }
+
+    .file-upload .upload-text {
+      font-size: 13px;
+      color: var(--text-secondary);
+    }
+
+    .file-upload .upload-filename {
+      font-size: 13px;
+      color: var(--accent);
+      font-weight: 500;
+    }
+
+    /* ===== CHECKBOXES ===== */
+    .checkbox-group {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 16px;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border);
+      background: var(--surface-muted);
+      margin-bottom: 12px;
+      transition: border-color 0.2s;
+    }
+
+    .checkbox-group:hover {
+      border-color: var(--text-tertiary);
+    }
+
+    .checkbox-group input[type="checkbox"] {
+      width: 18px;
+      height: 18px;
+      margin-top: 2px;
+      accent-color: var(--accent);
+      flex-shrink: 0;
+      cursor: pointer;
+    }
+
+    .checkbox-group label {
+      font-size: 13px;
+      color: var(--text-secondary);
+      line-height: 1.6;
+      margin: 0;
+      cursor: pointer;
+    }
+
+    .checkbox-group label strong {
+      color: var(--text-primary);
+      font-weight: 600;
+    }
+
+    /* ===== CONTACT BAR ===== */
+    .contact-bar {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 20px 24px;
+      margin-bottom: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .contact-bar .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 14px;
+      color: var(--text-secondary);
+    }
+
+    .contact-bar .contact-item a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .contact-bar .contact-item a:hover {
+      text-decoration: underline;
+    }
+
+    /* ===== SUBMIT ===== */
+    .submit-btn {
+      width: 100%;
+      padding: 18px;
+      border-radius: var(--radius-md);
+      background: linear-gradient(135deg, var(--accent), #d4a520);
+      color: #0a0a0f;
+      border: none;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.25s;
+      letter-spacing: 0.02em;
+      box-shadow: var(--clay-shadow);
+    }
+
+    .submit-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--clay-shadow-hover);
+    }
+    
+    .submit-btn:active {
+      transform: translateY(2px);
+      box-shadow: var(--clay-shadow-active);
+    }
+
+    .submit-btn:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+      transform: none;
+      box-shadow: none;
+    }
+
+    /* ===== SUCCESS ===== */
+    .success-card {
+      text-align: center;
+      padding: 60px 24px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+    }
+
+    .success-card .success-icon {
+      font-size: 64px;
+      margin-bottom: 16px;
+    }
+
+    .success-card h2 {
+      font-size: 24px;
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: var(--positive);
+    }
+
+    .success-card p {
+      font-size: 14px;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    .success-card .reset-btn {
+      margin-top: 24px;
+      padding: 12px 32px;
+      background: var(--surface-raised);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      color: var(--text-primary);
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .success-card .reset-btn:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    /* ===== LOADING ===== */
+    .loading-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(10, 10, 15, 0.85);
+      backdrop-filter: blur(4px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      z-index: 1000;
+    }
+
+    .loading-overlay.active {
+      display: flex;
+    }
+
+    .spinner {
+      width: 48px;
+      height: 48px;
+      border: 3px solid var(--border);
+      border-top-color: var(--accent);
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+    }
+
+    @keyframes spin {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    .loading-text {
+      margin-top: 16px;
+      font-size: 14px;
+      color: var(--text-secondary);
+    }
+
+    /* ===== HIDDEN ===== */
+    .hidden {
+      display: none !important;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 640px) {
+      .prize-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .cat-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+
+      .member-header,
+      .member-row {
+        grid-template-columns: 1fr;
+        gap: 4px;
+      }
+
+      .member-header {
+        display: none;
+      }
+
+      .payment-options {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding: 80px 16px 60px;
+        min-height: 360px;
+      }
+
+      .container {
+        padding: 0 16px 60px;
+      }
+
+      .contact-bar {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .venue-bar-inner {
+        flex-direction: column;
+        gap: 4px;
+      }
+    }
+
+    /* ===== FOOTER ===== */
+    .footer {
+      text-align: center;
+      padding: 40px 20px;
+      border-top: 1px solid var(--border);
+      color: var(--text-quaternary);
+      font-size: 12px;
+    }
+
+    .footer a {
+      color: var(--text-tertiary);
+      text-decoration: none;
+    }
+
+    .footer a:hover {
+      color: var(--accent);
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Loading Overlay -->
+  <div class="loading-overlay" id="loading-overlay">
+    <div class="spinner"></div>
+    <div class="loading-text">Submitting your registration...</div>
+  </div>
+
+  <!-- ===== HERO WITH BANNER BACKGROUND ===== -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-content">
+      <div class="hero-badge">Hmart Presents</div>
+      <h1>Chuseok Cup</h1>
+      <div class="year">2026</div>
+      <div class="hero-tagline">Tennis & Pickleball Tournament</div>
+      <div class="hero-date">September 24 – 25, 2026 &nbsp;|&nbsp; Mixed Open Tournament</div>
+      <div class="hero-slogan">Play. Gather. Celebrate.</div>
+    </div>
+  </section>
+
+  <!-- ===== VENUE BAR ===== -->
+  <div class="venue-bar">
+    <div class="venue-bar-inner">
+      <span class="venue-icon">📍</span>
+      <span><strong>Venue:</strong> Cecile Tennis Club, Dapdap, Lapu-Lapu City</span>
+      <span style="color:var(--text-quaternary)">(near Crimson Resort & Spa)</span>
+      <span>•</span>
+      <a href="https://share.google/2iR6rEVNekmabLK5a" target="_blank" rel="noopener">View on Map →</a>
+    </div>
+  </div>
+
+  <!-- ===== IMAGES BANNER ===== -->
+  <div class="img-banner">
+    <img src="images/10212.jpg" alt="Chuseok Cup Poster" onerror="this.style.display='none'">
+    <img src="images/10213.jpg" alt="Chuseok Cup Header" onerror="this.style.display='none'">
+  </div>
+
+  <!-- ===== MAIN CONTENT ===== -->
+  <div class="container">
+
+    <!-- Contact Info Bar -->
+    <div class="contact-info-section" style="background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 24px; margin-bottom: 32px;">
+      <h3 style="font-size: 16px; margin-bottom: 16px; color: var(--accent);">Contact & Details</h3>
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; font-size: 14px; color: var(--text-secondary);">
+        <div>
+          <p><strong style="color: var(--text-primary);">Store:</strong> HMart</p>
+          <p><strong style="color: var(--text-primary);">Address:</strong> Ibapu, Mactan, Lapu-Lapu City (near LG Garden)</p>
+          <p><strong style="color: var(--text-primary);">Mobile:</strong> 0960 327 3419</p>
+          <p><strong style="color: var(--text-primary);">Email:</strong> <a href="mailto:cebuhmartmktng@gmail.com" style="color: var(--accent);">cebuhmartmktng@gmail.com</a></p>
+        </div>
+        <div>
+          <p><strong style="color: var(--text-primary);">Facebook:</strong><br>
+            <a href="https://www.facebook.com/profile.php?id=61561839845446" target="_blank" style="color: var(--accent); text-decoration: none;">HMart Page</a> | 
+            <a href="https://www.facebook.com/profile.php?id=61591329958205" target="_blank" style="color: var(--accent); text-decoration: none;">Chuseok Cup Page</a>
+          </p>
+          <p style="margin-top: 8px;"><strong style="color: var(--text-primary);">Instagram:</strong><br>
+            <a href="https://instagram.com/cebuhmart_" target="_blank" style="color: var(--accent); text-decoration: none;">@cebuhmart_</a>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Prizes -->
+    <div class="section-title">Prize Pool</div>
+    <div class="prize-grid">
+      <div class="prize-card tennis">
+        <div class="prize-icon">🎾</div>
+        <h3>Tennis Group</h3>
+        <div class="prize-row"><span class="label">Champion</span><span class="amt">₱30,000</span></div>
+        <div class="prize-row"><span class="label">Finalist</span><span class="amt">₱20,000</span></div>
+        <div class="prize-row"><span class="label">Semi-Finalist</span><span class="amt">Gift Vouchers</span></div>
+      </div>
+      <div class="prize-card pb-group">
+        <div class="prize-icon">🏓</div>
+        <h3>Pickleball Group</h3>
+        <div class="prize-row"><span class="label">Champion</span><span class="amt">₱25,000</span></div>
+        <div class="prize-row"><span class="label">Finalist</span><span class="amt">₱10,000</span></div>
+        <div class="prize-row"><span class="label">Semi-Finalist</span><span class="amt">Gift Vouchers</span></div>
+      </div>
+      <div class="prize-card pb-single">
+        <div class="prize-icon">🏓</div>
+        <h3>Pickleball Singles</h3>
+        <div class="prize-row"><span class="label">Champion</span><span class="amt">₱10,000</span></div>
+        <div class="prize-row"><span class="label">Finalist</span><span class="amt">₱5,000</span></div>
+        <div class="prize-row"><span class="label">Semi-Finalist</span><span class="amt">Gift Vouchers</span></div>
+      </div>
+    </div>
+
+    <!-- Registration -->
+    <div class="section-title">Player Registration</div>
+
+    <!-- Category Selector -->
+    <div class="cat-grid" id="cat-grid">
+      <div class="cat-btn" data-cat="tennis-group" onclick="selectCat('tennis-group')">
+        <div class="cat-icon">🎾</div>
+        <h4>Tennis Group Game</h4>
+        <p>Exactly 10 members</p>
+        <div style="margin-top: 8px; font-size: 11px; color: var(--accent);">
+          ₱5,000 / team<br>OR ₱50k HMart receipts (July-Sep 5)
+        </div>
+      </div>
+      <div class="cat-btn" data-cat="pb-group" onclick="selectCat('pb-group')">
+        <div class="cat-icon">🏓</div>
+        <h4>Pickleball Group Game</h4>
+        <p>Up to 8 members</p>
+        <div style="margin-top: 8px; font-size: 11px; color: var(--accent);">
+          ₱4,000 / team<br>OR ₱40k HMart receipts
+        </div>
+      </div>
+      <div class="cat-btn" data-cat="pb-single" onclick="selectCat('pb-single')">
+        <div class="cat-icon">🏸</div>
+        <h4>Pickleball Singles</h4>
+        <p>Individual player</p>
+        <div style="margin-top: 8px; font-size: 11px; color: var(--accent);">
+          ₱500 / player<br>OR ₱5k HMart receipts
+        </div>
+      </div>
+    </div>
+
+    <form id="reg-form" onsubmit="return handleSubmit(event)">
+
+      <!-- ===== GROUP FORM ===== -->
+      <div id="group-form" class="hidden">
+        <div class="card">
+          <div class="card-title">📝 Team Information</div>
+          <div class="form-group">
+            <label>Team Name <span class="req">*</span></label>
+            <input type="text" name="team_name" placeholder="e.g. Smash Kings" required>
+          </div>
+          <div class="form-group">
+            <label>Sport</label>
+            <input type="text" name="sport" id="sport-group" readonly>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-title">👥 Team Members</div>
+          <div class="member-header">
+            <span>Full Name</span>
+            <span>Age</span>
+            <span>T-Shirt</span>
+          </div>
+          <div id="members-container">
+          </div>
+          <button type="button" class="add-member-btn" id="add-member-btn" onclick="addMember()">+ Add another
+            member</button>
+        </div>
+      </div>
+
+      <!-- ===== SINGLES FORM ===== -->
+      <div id="singles-form" class="hidden">
+        <div class="card">
+          <div class="card-title">📝 Player Information</div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Full Name <span class="req">*</span></label>
+              <input type="text" name="player_name" placeholder="Your full name" required>
+            </div>
+            <div class="form-group">
+              <label>Age <span class="req">*</span></label>
+              <input type="number" name="player_age" placeholder="Age" min="10" max="99" required>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>T-Shirt Size <span class="req">*</span></label>
+              <select name="player_size" required>
+                <option value="">Select size</option>
+                <option>XS</option>
+                <option>S</option>
+                <option>M</option>
+                <option>L</option>
+                <option>XL</option>
+                <option>XXL</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Sport</label>
+              <input type="text" name="sport_single" value="Pickleball" readonly>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== PAYMENT ===== -->
+      <div id="payment-section" class="hidden">
+        <div class="card">
+          <div class="card-title">💳 Entry Fee Payment</div>
+
+          <div class="payment-options">
+            <div class="pay-opt" data-pay="cash" onclick="selectPay('cash')">
+              <div class="pay-icon">💵</div>
+              <div class="pay-label">Cash</div>
+            </div>
+            <div class="pay-opt" data-pay="bank" onclick="selectPay('bank')">
+              <div class="pay-icon">🏦</div>
+              <div class="pay-label">Bank Transfer</div>
+            </div>
+            <div class="pay-opt" data-pay="receipts" onclick="selectPay('receipts')">
+              <div class="pay-icon">🧾</div>
+              <div class="pay-label">HMart Receipts</div>
+            </div>
+          </div>
+          <input type="hidden" name="payment_method" id="payment-method">
+
+          <!-- Bank Details -->
+          <div id="bank-details" class="bank-card hidden">
+            <h4>🏦 Bank Transfer Details</h4>
+            <div class="bank-row">
+              <span class="bank-label">Bank Name</span>
+              <span class="bank-value">Metrobank</span>
+            </div>
+            <div class="bank-row">
+              <span class="bank-label">Account Name</span>
+              <span class="bank-value">H-Mart Philippines Commercial Inc</span>
+            </div>
+            <div class="bank-row">
+              <span class="bank-label">Account No.</span>
+              <span class="bank-value" style="font-family:monospace;letter-spacing:0.05em">1857185554429</span>
+            </div>
+          </div>
+
+          <!-- Cash Details -->
+          <div id="cash-details" class="bank-card hidden">
+            <h4>💵 Cash Payment Instructions</h4>
+            <p style="font-size: 13px; color: var(--text-secondary); margin-bottom: 8px;">Please visit our store to pay in cash. <strong>Do not upload a receipt here.</strong></p>
+            <div class="bank-row">
+              <span class="bank-label">Store</span>
+              <span class="bank-value">HMart</span>
+            </div>
+            <div class="bank-row">
+              <span class="bank-label">Address</span>
+              <span class="bank-value">Ibapu, Mactan, Lapu-Lapu City</span>
+            </div>
+            <div class="bank-row">
+              <span class="bank-label">Mobile</span>
+              <span class="bank-value">0960 327 3419</span>
+            </div>
+          </div>
+
+          <div id="proof-upload" class="hidden">
+            <div class="form-group">
+              <label id="upload-label">Proof of Payment / Receipt <span class="req">*</span></label>
+              <div class="file-upload" onclick="document.getElementById('proof-file').click()">
+                <input type="file" id="proof-file" name="proof_file" accept="image/*,.pdf"
+                  onchange="handleFileSelect(this)">
+                <div class="upload-icon">📎</div>
+                <div class="upload-text" id="upload-text">Click or drag to upload screenshot / photo of payment</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== CONTACT ===== -->
+      <div id="contact-section" class="hidden">
+        <div class="card">
+          <div class="card-title">📧 Contact Information</div>
+          <div class="form-group">
+            <label>Email Address <span class="req">*</span></label>
+            <input type="email" name="email" placeholder="contact@email.com" required>
+          </div>
+          <div class="form-group">
+            <label>Mobile Number <span class="req">*</span></label>
+            <input type="tel" name="mobile" placeholder="+63 9XX XXX XXXX" required>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== WAIVERS ===== -->
+      <div id="waiver-section" class="hidden">
+        <div class="card">
+          <div class="card-title">✅ Declarations & Consent</div>
+
+          <div class="checkbox-group">
+            <input type="checkbox" name="waiver" id="waiver" required>
+            <label for="waiver"><strong>Waiver / Team Declaration:</strong> I declare that all information provided is
+              true and accurate. I understand that participation in sports activities involves inherent risks, and I
+              assume full responsibility for any injury or loss. I agree to abide by all tournament rules and the
+              decisions of the organizers.</label>
+          </div>
+
+          <div class="checkbox-group">
+            <input type="checkbox" name="media_consent" id="media_consent" required>
+            <label for="media_consent"><strong>Media Consent:</strong> I consent to the use of my name, image, voice,
+              and likeness in any photographs, videos, or recordings taken during the Chuseok Cup 2026 for promotional,
+              archival, or media purposes by the organizers.</label>
+          </div>
+
+          <div class="checkbox-group">
+            <input type="checkbox" name="privacy" id="privacy" required>
+            <label for="privacy"><strong>Data Privacy Act (RA 10173):</strong> I consent to the collection, processing,
+              and storage of my personal data in accordance with the Data Privacy Act of 2012. I understand that my
+              information will be used solely for tournament registration, communication, and related purposes.</label>
+          </div>
+        </div>
+      </div>
+
+      <div id="submit-area" class="hidden">
+        <button type="submit" class="submit-btn" id="submit-btn">Submit Registration</button>
+      </div>
+
+    </form>
+
+    <!-- ===== SUCCESS ===== -->
+    <div id="success-state" class="success-card hidden">
+      <div class="success-icon">🏆</div>
+      <h2>Registration Submitted!</h2>
+      <p>Thank you for registering for Chuseok Cup 2026.<br>We will contact you via email with further details.</p>
+      <p style="margin-top:12px;font-size:13px;color:var(--text-tertiary)">
+        Questions? Email us at <a href="mailto:cebuhmartmktng@gmail.com"
+          style="color:var(--accent)">cebuhmartmktng@gmail.com</a>
+      </p>
+      <button type="button" class="reset-btn" onclick="resetForm()">Register Another Entry</button>
+    </div>
+
+  </div>
+
+  <!-- ===== FOOTER ===== -->
+  <div class="footer">
+    <p><strong>Chuseok Cup 2026</strong> — Presented by HMart</p>
+    <p style="margin-top:4px;">📍 Ibapu, Mactan, Lapu-Lapu City &nbsp;|&nbsp; 📧 <a
+        href="mailto:cebuhmartmktng@gmail.com">cebuhmartmktng@gmail.com</a></p>
+    <p style="margin-top:8px;color:var(--text-quaternary)">Play. Gather. Celebrate.</p>
+  </div>
+
+  <script>
+    // ============================================================
+    // CONFIG: Replace with your Google Apps Script Web App URL
+    // ============================================================
+    const GAS_URL = 'https://script.google.com/macros/s/AKfycbzYjAz4ZBwVs1OgETLvy9XuMy5uj4DJzCpAaowkxsDyYWaUEc_p_TDf8YYVJsSMPLs/exec';
+    // ============================================================
+
+    let currentCat = null;
+    let memberCount = 3;
+    let uploadedFileBase64 = null;
+    let uploadedFileName = null;
+    let uploadedFileType = null;
+
+    function selectCat(cat) {
+      currentCat = cat;
+      document.querySelectorAll('.cat-btn').forEach(b => b.classList.remove('active'));
+      document.querySelector(`.cat-btn[data-cat="${cat}"]`).classList.add('active');
+
+      const isGroup = cat === 'tennis-group' || cat === 'pb-group';
+      const sportName = cat === 'tennis-group' ? 'Tennis' : 'Pickleball';
+
+      document.getElementById('group-form').classList.toggle('hidden', !isGroup);
+      document.getElementById('singles-form').classList.toggle('hidden', isGroup);
+      document.getElementById('payment-section').classList.remove('hidden');
+      document.getElementById('contact-section').classList.remove('hidden');
+      document.getElementById('waiver-section').classList.remove('hidden');
+      document.getElementById('submit-area').classList.remove('hidden');
+
+      const sportInput = document.getElementById('sport-group');
+      if (sportInput) sportInput.value = sportName;
+
+      if (isGroup) {
+        setupMembers(cat);
+      }
+
+      setTimeout(() => {
+        document.getElementById('reg-form').scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 100);
+    }
+
+    function setupMembers(cat) {
+      const container = document.getElementById('members-container');
+      container.innerHTML = '';
+      memberCount = 0;
+      
+      const targetCount = cat === 'tennis-group' ? 10 : 3;
+      const isTennis = cat === 'tennis-group';
+      
+      for (let i = 0; i < targetCount; i++) {
+        const isRequired = isTennis || i < 2;
+        addMemberRow(isRequired);
+      }
+      updateAddMemberBtn();
+    }
+
+    function updateAddMemberBtn() {
+      const maxMembers = currentCat === 'tennis-group' ? 10 : 8;
+      document.getElementById('add-member-btn').style.display = (memberCount >= maxMembers) ? 'none' : 'block';
+    }
+
+    function addMember() {
+      const maxMembers = currentCat === 'tennis-group' ? 10 : 8;
+      if (memberCount >= maxMembers) return;
+      addMemberRow(false);
+      updateAddMemberBtn();
+    }
+
+    function addMemberRow(isRequired) {
+      memberCount++;
+      const container = document.getElementById('members-container');
+      const row = document.createElement('div');
+      row.className = 'member-row';
+      const reqStr = isRequired ? 'required' : '';
+      row.innerHTML = `
+    <input type="text" name="member_name_${memberCount}" placeholder="Member ${memberCount} name" ${reqStr}>
+    <input type="number" name="member_age_${memberCount}" placeholder="Age" min="10" max="99" ${reqStr}>
+    <select name="member_size_${memberCount}" ${reqStr}>
+      <option value="">Size</option>
+      <option>XS</option><option>S</option><option>M</option><option>L</option><option>XL</option><option>XXL</option>
+    </select>
+  `;
+      container.appendChild(row);
+    }
+
+
+
+    function selectPay(method) {
+      document.querySelectorAll('.pay-opt').forEach(p => p.classList.remove('active'));
+      document.querySelector(`.pay-opt[data-pay="${method}"]`).classList.add('active');
+      document.getElementById('payment-method').value = method;
+      
+      const isCash = method === 'cash';
+      const isBank = method === 'bank';
+      
+      document.getElementById('bank-details').classList.toggle('hidden', !isBank);
+      document.getElementById('cash-details').classList.toggle('hidden', !isCash);
+      document.getElementById('proof-upload').classList.toggle('hidden', isCash);
+      
+      if (isCash) {
+        uploadedFileBase64 = null;
+        uploadedFileName = null;
+        uploadedFileType = null;
+        document.getElementById('upload-text').textContent = 'Click or drag to upload screenshot / photo of payment';
+        document.getElementById('upload-text').className = 'upload-text';
+        document.getElementById('proof-file').value = '';
+      } else {
+        document.getElementById('upload-label').innerHTML = method === 'bank' 
+          ? 'Proof of Bank Transfer <span class="req">*</span>' 
+          : 'HMart Receipts Photo <span class="req">*</span>';
+      }
+    }
+
+    function handleFileSelect(input) {
+      const file = input.files[0];
+      const textEl = document.getElementById('upload-text');
+      if (!file) {
+        textEl.textContent = 'Click or drag to upload screenshot / photo of payment';
+        textEl.className = 'upload-text';
+        uploadedFileBase64 = null;
+        return;
+      }
+      if (file.size > 5 * 1024 * 1024) {
+        alert('File too large. Maximum size is 5MB.');
+        input.value = '';
+        return;
+      }
+      uploadedFileName = file.name;
+      uploadedFileType = file.type;
+      const reader = new FileReader();
+      reader.onload = function (e) {
+        uploadedFileBase64 = e.target.result.split(',')[1];
+        textEl.textContent = file.name;
+        textEl.className = 'upload-filename';
+      };
+      reader.readAsDataURL(file);
+    }
+
+    function showLoading(show) {
+      document.getElementById('loading-overlay').classList.toggle('active', show);
+    }
+
+    function gatherFormData() {
+      const form = document.getElementById('reg-form');
+      const fd = new FormData(form);
+      const data = {};
+      fd.forEach((v, k) => { if (v) data[k] = v; });
+      data.category = currentCat;
+      if (currentCat === 'tennis-group' || currentCat === 'pb-group') {
+        data.members = [];
+        for (let i = 1; i <= memberCount; i++) {
+          const name = fd.get(`member_name_${i}`);
+          const age = fd.get(`member_age_${i}`);
+          const size = fd.get(`member_size_${i}`);
+          if (name && age && size) {
+            data.members.push({ name, age, size });
+          }
+        }
+        data.members_json = JSON.stringify(data.members);
+      }
+      if (uploadedFileBase64) {
+        data.file_base64 = uploadedFileBase64;
+        data.file_name = uploadedFileName;
+        data.file_type = uploadedFileType;
+      }
+      data.submitted_at = new Date().toISOString();
+      return data;
+    }
+
+    async function handleSubmit(e) {
+      e.preventDefault();
+      if (!document.getElementById('payment-method').value) {
+        alert('Please select a payment method.');
+        return false;
+      }
+      if (document.getElementById('payment-method').value !== 'cash' && !uploadedFileBase64) {
+        alert('Please upload a proof of payment or HMart receipt.');
+        return false;
+      }
+      const btn = document.getElementById('submit-btn');
+      btn.disabled = true;
+      btn.textContent = 'Submitting...';
+      showLoading(true);
+      const data = gatherFormData();
+
+      if (GAS_URL === 'YOUR_GOOGLE_APPS_SCRIPT_URL_HERE') {
+        setTimeout(() => {
+          showLoading(false);
+          document.getElementById('reg-form').classList.add('hidden');
+          document.getElementById('cat-grid').classList.add('hidden');
+          document.getElementById('success-state').classList.remove('hidden');
+          btn.disabled = false;
+          btn.textContent = 'Submit Registration';
+          console.log('DEMO MODE — Form data:', data);
+        }, 1500);
+        return false;
+      }
+
+      try {
+        const response = await fetch(GAS_URL, {
+          method: 'POST',
+          body: JSON.stringify(data),
+          headers: { 'Content-Type': 'text/plain;charset=utf-8' }
+        });
+        const result = await response.json();
+        showLoading(false);
+        if (result.success) {
+          document.getElementById('reg-form').classList.add('hidden');
+          document.getElementById('cat-grid').classList.add('hidden');
+          document.getElementById('success-state').classList.remove('hidden');
+        } else {
+          alert('Error: ' + (result.error || 'Something went wrong. Please try again.'));
+        }
+      } catch (err) {
+        showLoading(false);
+        alert('Network error. Please check your connection and try again.\\n' + err.message);
+      }
+      btn.disabled = false;
+      btn.textContent = 'Submit Registration';
+      return false;
+    }
+
+    function resetForm() {
+      document.getElementById('reg-form').reset();
+      document.getElementById('reg-form').classList.remove('hidden');
+      document.getElementById('cat-grid').classList.remove('hidden');
+      document.getElementById('success-state').classList.add('hidden');
+      document.getElementById('group-form').classList.add('hidden');
+      document.getElementById('singles-form').classList.add('hidden');
+      document.getElementById('payment-section').classList.add('hidden');
+      document.getElementById('contact-section').classList.add('hidden');
+      document.getElementById('waiver-section').classList.add('hidden');
+      document.getElementById('submit-area').classList.add('hidden');
+      document.querySelectorAll('.cat-btn').forEach(b => b.classList.remove('active'));
+      document.querySelectorAll('.pay-opt').forEach(p => p.classList.remove('active'));
+      if (document.getElementById('bank-details')) document.getElementById('bank-details').classList.add('hidden');
+      if (document.getElementById('cash-details')) document.getElementById('cash-details').classList.add('hidden');
+      if (document.getElementById('proof-upload')) document.getElementById('proof-upload').classList.add('hidden');
+      document.getElementById('upload-text').textContent = 'Click or drag to upload screenshot / photo of payment';
+      document.getElementById('upload-text').className = 'upload-text';
+      document.getElementById('proof-file').value = '';
+      const container = document.getElementById('members-container');
+      container.innerHTML = '';
+      memberCount = 0;
+      document.getElementById('add-member-btn').style.display = 'block';
+      uploadedFileBase64 = null;
+      uploadedFileName = null;
+      uploadedFileType = null;
+      currentCat = null;
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  </script>
+
+</body>
+
+</html>
