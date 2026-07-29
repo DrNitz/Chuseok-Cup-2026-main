@@ -457,12 +457,18 @@
     .bg-obj {
       position: absolute;
       font-size: 120px;
-      opacity: 0.15;
-      filter: blur(4px);
+      opacity: 0.4;
+      filter: blur(2px);
       animation: floatBg linear infinite;
     }
+    
+    .bg-inner {
+      display: inline-block;
+      transition: transform 0.1s ease-out;
+    }
+
     [data-theme="light"] .bg-obj {
-      opacity: 0.25;
+      opacity: 0.6;
     }
     .bg-obj:nth-child(1) { top: 20%; left: -20%; animation-duration: 35s; }
     .bg-obj:nth-child(2) { top: 70%; right: -20%; animation-duration: 45s; animation-direction: reverse; font-size: 160px; }
@@ -1042,10 +1048,10 @@
   
   <!-- Floating Background Objects -->
   <div class="bg-objects" aria-hidden="true">
-    <div class="bg-obj">🎾</div>
-    <div class="bg-obj">🏓</div>
-    <div class="bg-obj">🏸</div>
-    <div class="bg-obj">🎾</div>
+    <div class="bg-obj"><div class="bg-inner">🎾</div></div>
+    <div class="bg-obj"><div class="bg-inner">🏓</div></div>
+    <div class="bg-obj"><div class="bg-inner">🏸</div></div>
+    <div class="bg-obj"><div class="bg-inner">🎾</div></div>
   </div>
 
   <button id="theme-toggle" class="theme-toggle" aria-label="Toggle Theme" title="Toggle Light/Dark Mode">
@@ -1666,6 +1672,17 @@
         observer.observe(el);
       });
     });
+    // ===== PARALLAX BACKGROUND OBJECTS =====
+    document.addEventListener('mousemove', (e) => {
+      const x = (e.clientX / window.innerWidth) - 0.5;
+      const y = (e.clientY / window.innerHeight) - 0.5;
+      
+      document.querySelectorAll('.bg-inner').forEach((el, index) => {
+        const speed = (index + 1) * 30; 
+        el.style.transform = `translate(${x * speed}px, ${y * speed}px)`;
+      });
+    });
+
   </script>
 
 </body>
