@@ -433,6 +433,34 @@
       transform: translateY(0);
     }
 
+    /* ===== FLOATING BACKGROUND OBJECTS ===== */
+    .bg-objects {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: -2;
+      overflow: hidden;
+    }
+    .bg-obj {
+      position: absolute;
+      font-size: 120px;
+      opacity: 0.05;
+      filter: blur(3px);
+      animation: floatBg linear infinite;
+    }
+    [data-theme="light"] .bg-obj {
+      opacity: 0.08;
+    }
+    .bg-obj:nth-child(1) { top: 20%; left: -20%; animation-duration: 35s; }
+    .bg-obj:nth-child(2) { top: 70%; right: -20%; animation-duration: 45s; animation-direction: reverse; font-size: 160px; }
+    .bg-obj:nth-child(3) { bottom: -20%; left: 30%; animation-duration: 50s; }
+    .bg-obj:nth-child(4) { top: -20%; right: 40%; animation-duration: 40s; font-size: 90px; }
+
+    @keyframes floatBg {
+      0% { transform: translate(0, 0) rotate(0deg); }
+      100% { transform: translate(120vw, 40vh) rotate(360deg); }
+    }
+
     .prize-icon {
       font-size: 32px;
       margin-bottom: 8px;
@@ -997,6 +1025,14 @@
 </head>
 
 <body>
+  <!-- Floating Background Objects -->
+  <div class="bg-objects" aria-hidden="true">
+    <div class="bg-obj">🎾</div>
+    <div class="bg-obj">🏓</div>
+    <div class="bg-obj">🏸</div>
+    <div class="bg-obj">🎾</div>
+  </div>
+
   <button id="theme-toggle" class="theme-toggle" aria-label="Toggle Theme" title="Toggle Light/Dark Mode">
     <span class="icon-sun">☀️</span>
     <span class="icon-moon">🌙</span>
