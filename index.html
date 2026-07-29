@@ -1034,15 +1034,20 @@
     /* ===== FOOTER ===== */
     .footer {
       text-align: center;
-      padding: 40px 20px;
-      border-top: 1px solid var(--border);
-      color: var(--text-quaternary);
+      padding: 24px 20px;
+      background: rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      color: rgba(255, 255, 255, 0.7);
       font-size: 12px;
+      margin-top: auto;
     }
 
     .footer a {
-      color: var(--text-tertiary);
+      color: rgba(255, 255, 255, 0.9);
       text-decoration: none;
+      transition: color 0.2s ease;
     }
 
     .footer a:hover {
@@ -1395,10 +1400,15 @@
 
   <!-- ===== FOOTER ===== -->
   <div class="footer">
-    <p><strong>Chuseok Cup 2026</strong> — Presented by HMart</p>
+    <p style="color: #fff;"><strong>Chuseok Cup 2026</strong> — Presented by HMart</p>
     <p style="margin-top:4px;">📍 Ibapu, Mactan, Lapu-Lapu City &nbsp;|&nbsp; 📧 <a
         href="mailto:cebuhmartmktng@gmail.com">cebuhmartmktng@gmail.com</a></p>
-    <p style="margin-top:8px;color:var(--text-quaternary)">Play. Gather. Celebrate.</p>
+    <p style="margin-top:8px;">
+      <a href="#" onclick="alert('Privacy Policy coming soon'); return false;">Privacy Policy</a> 
+      &nbsp;|&nbsp; 
+      <a href="#" onclick="alert('Terms of Service coming soon'); return false;">Terms of Service</a>
+    </p>
+    <p style="margin-top:8px; opacity: 0.6;">Play. Gather. Celebrate. &copy; 2026</p>
   </div>
 
   <script>
