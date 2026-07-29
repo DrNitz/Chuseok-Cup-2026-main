@@ -1226,8 +1226,15 @@
       const isGroup = cat === 'tennis-group' || cat === 'pb-group';
       const sportName = cat === 'tennis-group' ? 'Tennis' : 'Pickleball';
 
-      document.getElementById('group-form').classList.toggle('hidden', !isGroup);
-      document.getElementById('singles-form').classList.toggle('hidden', isGroup);
+      const groupForm = document.getElementById('group-form');
+      const singlesForm = document.getElementById('singles-form');
+
+      groupForm.classList.toggle('hidden', !isGroup);
+      singlesForm.classList.toggle('hidden', isGroup);
+
+      // Disable inputs in hidden forms so their 'required' attributes don't silently block submission
+      groupForm.querySelectorAll('input, select').forEach(el => el.disabled = !isGroup);
+      singlesForm.querySelectorAll('input, select').forEach(el => el.disabled = isGroup);
       document.getElementById('payment-section').classList.remove('hidden');
       document.getElementById('contact-section').classList.remove('hidden');
       document.getElementById('waiver-section').classList.remove('hidden');
@@ -1431,8 +1438,13 @@
       document.getElementById('reg-form').classList.remove('hidden');
       document.getElementById('cat-grid').classList.remove('hidden');
       document.getElementById('success-state').classList.add('hidden');
-      document.getElementById('group-form').classList.add('hidden');
-      document.getElementById('singles-form').classList.add('hidden');
+      const groupForm = document.getElementById('group-form');
+      const singlesForm = document.getElementById('singles-form');
+      groupForm.classList.add('hidden');
+      singlesForm.classList.add('hidden');
+      groupForm.querySelectorAll('input, select').forEach(el => el.disabled = true);
+      singlesForm.querySelectorAll('input, select').forEach(el => el.disabled = true);
+      
       document.getElementById('payment-section').classList.add('hidden');
       document.getElementById('contact-section').classList.add('hidden');
       document.getElementById('waiver-section').classList.add('hidden');
