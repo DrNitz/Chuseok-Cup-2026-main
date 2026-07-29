@@ -310,10 +310,12 @@
     .section-title {
       font-size: 22px;
       font-weight: 700;
-      margin-bottom: 24px;
+      margin: 0 auto 24px auto;
       color: var(--text-primary);
-      display: inline-flex;
+      display: flex;
       align-items: center;
+      justify-content: center;
+      text-align: center;
       gap: 12px;
       background: var(--surface);
       padding: 12px 24px;
@@ -321,6 +323,7 @@
       box-shadow: var(--clay-shadow);
       backdrop-filter: var(--clay-blur);
       border: 1px solid var(--border);
+      width: fit-content;
     }
 
     .section-title::before {
@@ -395,9 +398,39 @@
     }
 
     .prize-row .amt {
-      font-weight: 600;
+      font-weight: 700;
       color: var(--accent);
-      font-variant-numeric: tabular-nums;
+      font-size: 16px;
+    }
+
+    .cat-price {
+      background: var(--surface-raised);
+      border: 1px solid var(--border);
+      color: var(--accent);
+      padding: 8px 12px;
+      border-radius: 8px;
+      font-weight: 600;
+      margin-top: 12px;
+      font-size: 13px;
+      line-height: 1.4;
+      box-shadow: inset 0 2px 4px rgba(0,0,0,0.2);
+    }
+    
+    [data-theme="light"] .cat-price {
+      background: rgba(217, 119, 6, 0.1);
+      border-color: rgba(217, 119, 6, 0.2);
+      box-shadow: none;
+    }
+
+    /* ===== SCROLL ANIMATION ===== */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
     }
 
     .prize-icon {
@@ -1032,23 +1065,23 @@
     </div>
 
     <!-- Prizes -->
-    <div class="section-title">Prize Pool</div>
+    <div class="section-title fade-in">Prize Pool</div>
     <div class="prize-grid">
-      <div class="prize-card tennis">
+      <div class="prize-card tennis fade-in">
         <div class="prize-icon">🎾</div>
         <h3>Tennis Group</h3>
         <div class="prize-row"><span class="label">Champion</span><span class="amt">₱30,000</span></div>
         <div class="prize-row"><span class="label">Finalist</span><span class="amt">₱20,000</span></div>
         <div class="prize-row"><span class="label">Semi-Finalist</span><span class="amt">Gift Vouchers</span></div>
       </div>
-      <div class="prize-card pb-group">
+      <div class="prize-card pb-group fade-in" style="transition-delay: 100ms;">
         <div class="prize-icon">🏓</div>
         <h3>Pickleball Group</h3>
         <div class="prize-row"><span class="label">Champion</span><span class="amt">₱25,000</span></div>
         <div class="prize-row"><span class="label">Finalist</span><span class="amt">₱10,000</span></div>
         <div class="prize-row"><span class="label">Semi-Finalist</span><span class="amt">Gift Vouchers</span></div>
       </div>
-      <div class="prize-card pb-single">
+      <div class="prize-card pb-single fade-in" style="transition-delay: 200ms;">
         <div class="prize-icon">🏓</div>
         <h3>Pickleball Singles</h3>
         <div class="prize-row"><span class="label">Champion</span><span class="amt">₱10,000</span></div>
@@ -1058,31 +1091,31 @@
     </div>
 
     <!-- Registration -->
-    <div class="section-title"><span style="color:var(--accent); margin-right: 8px;">Step 1:</span> Player Registration</div>
+    <div class="section-title fade-in"><span style="color:var(--accent); margin-right: 8px;">Step 1:</span> Player Registration</div>
 
     <!-- Category Selector -->
     <div class="cat-grid" id="cat-grid">
-      <div class="cat-btn" data-cat="tennis-group" onclick="selectCat('tennis-group')">
+      <div class="cat-btn fade-in" data-cat="tennis-group" onclick="selectCat('tennis-group')">
         <div class="cat-icon">🎾</div>
         <h4>Tennis Group Game</h4>
         <p>Exactly 10 members</p>
-        <div style="margin-top: 8px; font-size: 11px; color: var(--accent);">
+        <div class="cat-price">
           ₱5,000 / team<br>OR ₱50k HMart receipts (July-Sep 5)
         </div>
       </div>
-      <div class="cat-btn" data-cat="pb-group" onclick="selectCat('pb-group')">
+      <div class="cat-btn fade-in" data-cat="pb-group" onclick="selectCat('pb-group')">
         <div class="cat-icon">🏓</div>
         <h4>Pickleball Group Game</h4>
         <p>Up to 8 members</p>
-        <div style="margin-top: 8px; font-size: 11px; color: var(--accent);">
+        <div class="cat-price">
           ₱4,000 / team<br>OR ₱40k HMart receipts
         </div>
       </div>
-      <div class="cat-btn" data-cat="pb-single" onclick="selectCat('pb-single')">
+      <div class="cat-btn fade-in" data-cat="pb-single" onclick="selectCat('pb-single')">
         <div class="cat-icon">🏸</div>
         <h4>Pickleball Singles</h4>
         <p>Individual player</p>
-        <div style="margin-top: 8px; font-size: 11px; color: var(--accent);">
+        <div class="cat-price">
           ₱500 / player<br>OR ₱5k HMart receipts
         </div>
       </div>
@@ -1092,7 +1125,7 @@
 
       <!-- ===== GROUP FORM ===== -->
       <div id="group-form" class="hidden">
-        <div class="card">
+        <div class="card fade-in">
           <div class="card-title"><span style="color:var(--accent); font-size: 16px; font-weight: 700; margin-right: 8px;">Step 2:</span> 📝 Team Information</div>
           <div class="form-group">
             <label>Team Name <span class="req">*</span></label>
@@ -1104,7 +1137,7 @@
           </div>
         </div>
 
-        <div class="card">
+        <div class="card fade-in">
           <div class="card-title">👥 Team Members</div>
           <div class="member-header">
             <span>Full Name</span>
@@ -1120,7 +1153,7 @@
 
       <!-- ===== SINGLES FORM ===== -->
       <div id="singles-form" class="hidden">
-        <div class="card">
+        <div class="card fade-in">
           <div class="card-title"><span style="color:var(--accent); font-size: 16px; font-weight: 700; margin-right: 8px;">Step 2:</span> 📝 Player Information</div>
           <div class="form-row">
             <div class="form-group">
@@ -1155,7 +1188,7 @@
 
       <!-- ===== PAYMENT ===== -->
       <div id="payment-section" class="hidden">
-        <div class="card">
+        <div class="card fade-in">
           <div class="card-title"><span style="color:var(--accent); font-size: 16px; font-weight: 700; margin-right: 8px;">Step 3:</span> 💳 Entry Fee Payment</div>
 
           <div class="payment-options">
@@ -1225,7 +1258,7 @@
 
       <!-- ===== CONTACT ===== -->
       <div id="contact-section" class="hidden">
-        <div class="card">
+        <div class="card fade-in">
           <div class="card-title"><span style="color:var(--accent); font-size: 16px; font-weight: 700; margin-right: 8px;">Step 4:</span> 📧 Contact Information</div>
           <div class="form-group">
             <label>Email Address <span class="req">*</span></label>
@@ -1240,7 +1273,7 @@
 
       <!-- ===== WAIVERS ===== -->
       <div id="waiver-section" class="hidden">
-        <div class="card">
+        <div class="card fade-in">
           <div class="card-title"><span style="color:var(--accent); font-size: 16px; font-weight: 700; margin-right: 8px;">Step 5:</span> ✅ Declarations & Consent</div>
 
           <div class="checkbox-group">
@@ -1559,11 +1592,28 @@
     }
     const toggleBtn = document.getElementById('theme-toggle');
     const savedTheme = localStorage.getItem('theme') || 'dark';
-    if(savedTheme === 'light') document.documentElement.setAttribute('data-theme', 'light');
+    if (savedTheme === 'light') document.documentElement.setAttribute('data-theme', 'light');
     toggleBtn.addEventListener('click', () => {
       const isLight = document.documentElement.getAttribute('data-theme') === 'light';
       document.documentElement.setAttribute('data-theme', isLight ? 'dark' : 'light');
       localStorage.setItem('theme', isLight ? 'dark' : 'light');
+    });
+
+    // ===== SCROLL ANIMATION OBSERVER =====
+    document.addEventListener("DOMContentLoaded", function () {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            // Optional: unobserve if you only want it to animate once
+            // observer.unobserve(entry.target); 
+          }
+        });
+      }, { threshold: 0.1 });
+
+      document.querySelectorAll('.fade-in').forEach((el) => {
+        observer.observe(el);
+      });
     });
   </script>
 
