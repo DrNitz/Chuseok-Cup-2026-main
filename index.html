@@ -137,31 +137,50 @@
     .hero-bg {
       position: absolute;
       inset: 0;
-      background: url('images/10211.jpg') center top / cover no-repeat;
+      background: var(--bg);
       z-index: 0;
+      overflow: hidden;
     }
 
+    .hero-bg::before,
     .hero-bg::after {
       content: '';
       position: absolute;
-      inset: 0;
-      background: linear-gradient(180deg,
-          rgba(10, 10, 15, 0.3) 0%,
-          rgba(10, 10, 15, 0.65) 40%,
-          rgba(10, 10, 15, 0.92) 75%,
-          var(--bg) 100%);
+      width: 50vw;
+      height: 50vw;
+      border-radius: 50%;
+      filter: blur(80px);
+      z-index: -1;
+      animation: floatOrbs 12s infinite alternate ease-in-out;
+      opacity: 0.5;
+    }
+
+    .hero-bg::before {
+      background: rgba(250, 204, 21, 0.4);
+      top: -10vw;
+      left: -10vw;
+    }
+
+    .hero-bg::after {
+      background: rgba(59, 130, 246, 0.4);
+      bottom: -10vw;
+      right: -10vw;
+      animation-delay: -6s;
+    }
+
+    @keyframes floatOrbs {
+      0% {
+        transform: translate(0, 0) scale(1);
+      }
+      100% {
+        transform: translate(10vw, 15vw) scale(1.3);
+      }
     }
 
     .hero-content {
       position: relative;
       z-index: 1;
-      background: var(--surface-muted);
-      padding: 40px 60px;
-      border-radius: var(--radius-lg);
-      box-shadow: var(--clay-shadow);
-      backdrop-filter: var(--clay-blur);
-      border: 1px solid var(--border);
-      max-width: 90%;
+      padding: 20px;
     }
 
     .hero-badge {
@@ -186,7 +205,7 @@
       line-height: 1.05;
       margin-bottom: 4px;
       color: #fff;
-      text-shadow: 0 2px 24px rgba(0, 0, 0, 0.5);
+      text-shadow: 0 4px 24px rgba(0, 0, 0, 0.8);
     }
 
     .hero .year {
@@ -204,12 +223,14 @@
       color: var(--text-secondary);
       margin-bottom: 8px;
       font-weight: 500;
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.6);
     }
 
     .hero-date {
       font-size: 14px;
       color: var(--text-tertiary);
       font-variant-numeric: tabular-nums;
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.6);
     }
 
     .hero-slogan {
@@ -980,6 +1001,7 @@
 
   <!-- ===== IMAGES BANNER ===== -->
   <div class="img-banner">
+    <img src="images/10211.jpg" alt="Chuseok Cup Banner" onerror="this.style.display='none'">
     <img src="images/10212.jpg" alt="Chuseok Cup Poster" onerror="this.style.display='none'">
     <img src="images/10213.jpg" alt="Chuseok Cup Header" onerror="this.style.display='none'">
   </div>
