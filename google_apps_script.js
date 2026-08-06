@@ -46,7 +46,12 @@ function doPost(e) {
       membersInfo = `Age: ${data.player_age}, Size: ${data.player_size}`;
     } else if (data.members_json) {
       const members = JSON.parse(data.members_json);
-      membersInfo = members.map((m, i) => `${i+1}. ${m.name} (Age: ${m.age}, Size: ${m.size})`).join("\n");
+      membersInfo = members.map((m, i) => {
+        let text = `${i+1}. ${m.name} (Age: ${m.age}, Size: ${m.size}`;
+        if (m.skill) text += `, Skill: ${m.skill}`;
+        text += `)`;
+        return text;
+      }).join("\n");
     }
     
     // Append the new registration to the sheet
