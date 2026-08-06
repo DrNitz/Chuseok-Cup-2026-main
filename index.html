@@ -358,20 +358,19 @@
 
     .prize-card {
       background: var(--surface);
-      border: 1px solid var(--border);
       border-radius: var(--radius-lg);
-      padding: 24px 16px;
+      padding: 24px;
       text-align: center;
-      position: relative;
-      overflow: hidden;
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      border: 1px solid var(--border);
       box-shadow: var(--clay-shadow);
       backdrop-filter: var(--clay-blur);
+      transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease, border-color 0.4s ease;
     }
 
     .prize-card:hover {
-      transform: translateY(-8px) scale(1.02);
-      box-shadow: var(--clay-shadow-hover);
+      transform: translateY(-8px) scale(1.03);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+      border-color: var(--accent);
     }
 
     .prize-card.tennis {
@@ -439,53 +438,11 @@
     .fade-in {
       opacity: 0;
       transform: translateY(30px);
-      transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+      transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
     }
     .fade-in.visible {
       opacity: 1;
       transform: translateY(0);
-    }
-
-    /* ===== FLOATING BACKGROUND OBJECTS ===== */
-    .bg-objects {
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      z-index: -1;
-      overflow: hidden;
-    }
-    .bg-obj {
-      position: absolute;
-      font-size: 120px;
-      opacity: 0.4;
-      filter: blur(2px);
-      animation: floatBg linear infinite;
-    }
-    
-    .bg-inner {
-      display: inline-block;
-      transition: transform 0.1s ease-out;
-    }
-
-    [data-theme="light"] .bg-obj {
-      opacity: 0.6;
-    }
-    .bg-obj:nth-child(1) { top: 10%; left: -20%; animation-duration: 35s; font-size: 110px; }
-    .bg-obj:nth-child(2) { top: 60%; right: -20%; animation-duration: 45s; animation-direction: reverse; font-size: 140px; }
-    .bg-obj:nth-child(3) { bottom: -20%; left: 30%; animation-duration: 50s; font-size: 90px; }
-    .bg-obj:nth-child(4) { top: -20%; right: 40%; animation-duration: 40s; font-size: 80px; }
-    .bg-obj:nth-child(5) { top: 40%; left: -10%; animation-duration: 38s; font-size: 130px; animation-direction: alternate; }
-    .bg-obj:nth-child(6) { bottom: 10%; right: -10%; animation-duration: 42s; font-size: 100px; }
-    .bg-obj:nth-child(7) { top: -10%; left: 50%; animation-duration: 55s; font-size: 150px; animation-direction: reverse; }
-    .bg-obj:nth-child(8) { bottom: -15%; right: 20%; animation-duration: 48s; font-size: 120px; }
-    .bg-obj:nth-child(9) { top: 80%; left: 10%; animation-duration: 60s; font-size: 110px; animation-direction: alternate-reverse; }
-    .bg-obj:nth-child(10) { top: 20%; right: 10%; animation-duration: 33s; font-size: 90px; }
-    .bg-obj:nth-child(11) { top: 50%; left: 40%; animation-duration: 70s; font-size: 140px; }
-    .bg-obj:nth-child(12) { bottom: 40%; right: 40%; animation-duration: 65s; font-size: 100px; animation-direction: reverse; }
-
-    @keyframes floatBg {
-      0% { transform: translate(0, 0) rotate(0deg); }
-      100% { transform: translate(120vw, 40vh) rotate(360deg); }
     }
 
     .prize-icon {
@@ -503,21 +460,21 @@
 
     .cat-btn {
       background: var(--surface);
-      border: 1.5px solid transparent;
+      border: 1px solid var(--border);
       border-radius: var(--radius-lg);
-      padding: 28px 16px;
-      cursor: pointer;
+      padding: 24px;
       text-align: center;
-      transition: all 0.25s ease;
-      position: relative;
+      cursor: pointer;
       box-shadow: var(--clay-shadow);
+      transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease, border-color 0.4s ease, background 0.4s ease;
       backdrop-filter: var(--clay-blur);
     }
 
     .cat-btn:hover {
       background: var(--surface-raised);
-      box-shadow: var(--clay-shadow-hover);
-      transform: translateY(-2px);
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.2);
+      transform: translateY(-6px);
+      border-color: rgba(217, 119, 6, 0.5);
     }
 
     .cat-btn.active {
@@ -567,7 +524,9 @@
 
     .form-group {
       margin-bottom: 16px;
-    }    .form-group label {
+    }    
+    
+    .form-group label {
       display: block;
       margin-bottom: 8px;
       font-weight: 600;
@@ -580,15 +539,14 @@
     .form-group input,
     .form-group select {
       width: 100%;
-      padding: 16px;
-      border: 2px solid var(--border);
-      border-radius: var(--radius-sm);
-      background: rgba(10, 10, 15, 0.4);
+      padding: 14px 16px;
+      background: var(--input-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
       color: var(--text-primary);
-      font-size: 16px;
-      font-family: inherit;
-      outline: none;
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      font-size: 15px;
+      box-shadow: var(--clay-shadow-inset);
+      transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     }
 
     [data-theme="light"] .form-group input,
@@ -599,15 +557,19 @@
 
     .form-group input:focus,
     .form-group select:focus {
+      outline: none;
       border-color: var(--accent);
-      box-shadow: 0 0 0 4px var(--accent-glow);
+      background: var(--surface-raised);
       transform: translateY(-2px);
+      box-shadow: 0 4px 12px var(--accent-glow);
     }
 
     .req {
       color: var(--danger);
       margin-left: 2px;
-    } .form-group input::placeholder,
+    } 
+    
+    .form-group input::placeholder,
     .form-group textarea::placeholder {
       color: var(--text-quaternary);
     }
@@ -723,19 +685,20 @@
     }
 
     .pay-opt {
-      background: var(--surface-muted);
-      border: 1.5px solid transparent;
+      background: var(--surface);
+      border: 1px solid var(--border);
       border-radius: var(--radius-md);
       padding: 20px;
       text-align: center;
       cursor: pointer;
-      transition: all 0.2s;
+      transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease, border-color 0.4s ease, background 0.4s ease;
       box-shadow: var(--clay-shadow);
     }
 
     .pay-opt:hover {
-      box-shadow: var(--clay-shadow-hover);
-      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+      transform: translateY(-4px);
+      border-color: rgba(217, 119, 6, 0.4);
     }
 
     .pay-opt.active {
@@ -1059,22 +1022,6 @@
 <body>
   <div class="site-bg" aria-hidden="true"></div>
   
-  <!-- Floating Background Objects -->
-  <div class="bg-objects" aria-hidden="true">
-    <div class="bg-obj"><div class="bg-inner">🎾</div></div>
-    <div class="bg-obj"><div class="bg-inner">🏓</div></div>
-    <div class="bg-obj"><div class="bg-inner">🏸</div></div>
-    <div class="bg-obj"><div class="bg-inner">🎾</div></div>
-    <div class="bg-obj"><div class="bg-inner">🏓</div></div>
-    <div class="bg-obj"><div class="bg-inner">🎾</div></div>
-    <div class="bg-obj"><div class="bg-inner">🏸</div></div>
-    <div class="bg-obj"><div class="bg-inner">🎾</div></div>
-    <div class="bg-obj"><div class="bg-inner">🏓</div></div>
-    <div class="bg-obj"><div class="bg-inner">🏸</div></div>
-    <div class="bg-obj"><div class="bg-inner">🎾</div></div>
-    <div class="bg-obj"><div class="bg-inner">🏓</div></div>
-  </div>
-
   <button id="theme-toggle" class="theme-toggle" aria-label="Toggle Theme" title="Toggle Light/Dark Mode">
     <span class="icon-sun">☀️</span>
     <span class="icon-moon">🌙</span>
@@ -1733,17 +1680,6 @@
         observer.observe(el);
       });
     });
-    // ===== PARALLAX BACKGROUND OBJECTS =====
-    document.addEventListener('mousemove', (e) => {
-      const x = (e.clientX / window.innerWidth) - 0.5;
-      const y = (e.clientY / window.innerHeight) - 0.5;
-      
-      document.querySelectorAll('.bg-inner').forEach((el, index) => {
-        const speed = (index + 1) * 30; 
-        el.style.transform = `translate(${x * speed}px, ${y * speed}px)`;
-      });
-    });
-
   </script>
 
 </body>
